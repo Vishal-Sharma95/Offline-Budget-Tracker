@@ -19,7 +19,7 @@ val CoralRed = Color(0xFFE63946)
 val WarmOrange = Color(0xFFF2994A)
 val ElectricPurple = Color(0xFF9B51E0)
 val Cyan = Color(0xFF00B4D8)
-val  SoftViolet = Color(0xFF7C3AED)
+val  SoftViolet = Color(0xFF9812D3)
 
 //for Translucent & Surfaces;
 

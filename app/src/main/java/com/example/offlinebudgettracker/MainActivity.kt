@@ -11,6 +11,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import com.example.offlinebudgettracker.Screen.Analytics.Analytics
 import com.example.offlinebudgettracker.Screen.Homescreen.HomeScreen
 import com.example.offlinebudgettracker.ui.theme.OfflineBudgetTrackerTheme
 
@@ -20,7 +21,7 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             OfflineBudgetTrackerTheme {
-                HomeScreen()
+                Analytics()
             }
         }
     }
