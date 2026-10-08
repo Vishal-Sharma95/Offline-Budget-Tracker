@@ -12,6 +12,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.offlinebudgettracker.Screen.Analytics.Analytics
+import com.example.offlinebudgettracker.Screen.Budgetlimit.BudgetLimits
+import com.example.offlinebudgettracker.Screen.Budgetlimit.BudgetlimitCard
 import com.example.offlinebudgettracker.Screen.Homescreen.HomeScreen
 import com.example.offlinebudgettracker.Screen.Homescreen.RecordTransactionScreen
 import com.example.offlinebudgettracker.ui.theme.OfflineBudgetTrackerTheme
@@ -23,7 +25,9 @@ class MainActivity : ComponentActivity() {
         setContent {
             OfflineBudgetTrackerTheme {
 //                Analytics()
-                HomeScreen()
+//                HomeScreen()
+
+                BudgetLimits()
             }
         }
     }
