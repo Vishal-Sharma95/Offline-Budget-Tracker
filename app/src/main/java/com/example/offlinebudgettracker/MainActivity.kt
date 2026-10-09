@@ -1,9 +1,11 @@
 package com.example.offlinebudgettracker
 
+import android.os.Build
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.annotation.RequiresApi
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
@@ -16,9 +18,11 @@ import com.example.offlinebudgettracker.Screen.Budgetlimit.BudgetLimits
 import com.example.offlinebudgettracker.Screen.Budgetlimit.BudgetlimitCard
 import com.example.offlinebudgettracker.Screen.Homescreen.HomeScreen
 import com.example.offlinebudgettracker.Screen.Homescreen.RecordTransactionScreen
+import com.example.offlinebudgettracker.Screen.Transactionhistory.TransactionHistory
 import com.example.offlinebudgettracker.ui.theme.OfflineBudgetTrackerTheme
 
 class MainActivity : ComponentActivity() {
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -27,7 +31,8 @@ class MainActivity : ComponentActivity() {
 //                Analytics()
 //                HomeScreen()
 
-                BudgetLimits()
+//                BudgetLimits()
+                TransactionHistory()
             }
         }
     }

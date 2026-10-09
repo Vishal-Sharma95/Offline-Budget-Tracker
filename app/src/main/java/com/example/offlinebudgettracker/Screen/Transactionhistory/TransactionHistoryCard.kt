@@ -22,12 +22,12 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.offlinebudgettracker.Model.TransactionHistoryCardmodel
 import com.example.offlinebudgettracker.R
 import com.example.offlinebudgettracker.ui.theme.WarmOrange
 
-@Preview
 @Composable
-private fun TransactionHistoryCard() {
+ fun TransactionHistoryCard(transactionCard: TransactionHistoryCardmodel) {
 
     Card(
         colors = CardDefaults.cardColors(
@@ -43,41 +43,41 @@ private fun TransactionHistoryCard() {
             Row(modifier = Modifier.weight(1f),
                 verticalAlignment = Alignment.CenterVertically) {
 
-                Icon(painter = painterResource(R.drawable.food),
-                    contentDescription = null,
+                Icon(painter = painterResource(transactionCard.icon),
+                    contentDescription = transactionCard.title,
                     tint = Color.White,
                     modifier = Modifier.size(40.dp).background(
-                        color = WarmOrange,
+                        color = transactionCard.color,
                         shape = RoundedCornerShape(16.dp)
                     ).padding(10.dp))
 
 
                 //Second Column started;
 
-                Column(verticalArrangement = Arrangement.spacedBy(5.dp),
+                Column(
                     modifier = Modifier.padding(start = 18.dp)) {
-                    Text("Grocery Store",
-                        fontSize = 12.sp,
+                    Text(transactionCard.title,
+                        fontSize = 15.sp,
                         fontWeight = FontWeight.Bold,
                         color = Color.Black
                     )
 
-                    Text("Food",
-                        fontSize = 12.sp,
-                        color = Color.Gray.copy(0.8f),
-                        fontWeight = FontWeight.Bold
+                    Text(transactionCard.category,
+                        fontSize = 15.sp,
+                        color = Color.Gray.copy(0.7f),
+                        fontWeight = FontWeight.SemiBold
                     )
                 }
             }
 
-            Column(verticalArrangement = Arrangement.spacedBy(5.dp
-            )) {
-                Text("-$85.40",
+            Column(verticalArrangement = Arrangement.spacedBy(5.dp),
+                horizontalAlignment = Alignment.End) {
+                Text("$${transactionCard.Paid}",
                     fontWeight = FontWeight.Bold,
                     color = Color.Black,
-                    fontSize = 13.sp)
+                    fontSize = 15.sp)
 
-                Text("10:24 AM",
+                Text(transactionCard.time.toString(),
                     color = Color.Gray,
                     fontSize = 12.sp,
                     fontWeight = FontWeight.Bold
