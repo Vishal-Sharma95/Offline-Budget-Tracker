@@ -29,6 +29,7 @@ import com.example.offlinebudgettracker.ui.theme.WarmOrange
 @Composable
  fun TransactionHistoryCard(transactionCard: TransactionHistoryCardmodel) {
 
+
     Card(
         colors = CardDefaults.cardColors(
             containerColor = Color.White

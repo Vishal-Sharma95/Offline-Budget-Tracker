@@ -1,7 +1,9 @@
 package com.example.offlinebudgettracker.uicomponent
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
@@ -37,24 +39,31 @@ import kotlin.String
 
  NavigationBar(
   containerColor = Color.White,
-  modifier = Modifier.height(65.dp),
+  modifier = Modifier.height(70.dp).background(color = Color.White)
+   .padding(top = 8.dp),
   windowInsets = WindowInsets(0.dp),
  ) {
     navItem.forEach { item ->
 
      NavigationBarItem(
       onClick = {},
-      icon = { Icon(
-       painter = painterResource(item.icon),
-       contentDescription = item.label
-      ) },
-      label = { Text(text = item.label,
-       style = MaterialTheme.typography.titleLarge.copy(
-        fontWeight = FontWeight.Bold,
-        fontSize = 12.sp
-       )) },
+      icon = {
+       Icon(
+        painter = painterResource(item.icon),
+        contentDescription = item.label,
+        modifier = Modifier.size(24.dp)
+       )
+      },
+      label = {
+       Text(
+        text = item.label,
+        style = MaterialTheme.typography.titleLarge.copy(
+         fontWeight = FontWeight.Bold,
+         fontSize = 12.sp
+        )
+       )
+      },
       selected = false,
-      modifier = Modifier.size(20.dp),
       colors = NavigationBarItemDefaults.colors(
        unselectedIconColor = Color.DarkGray.copy(0.8f),
        selectedIconColor = Color.Blue.copy(alpha = 0.5f),
