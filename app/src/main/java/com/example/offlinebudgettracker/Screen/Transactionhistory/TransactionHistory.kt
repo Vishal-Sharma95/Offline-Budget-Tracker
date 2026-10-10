@@ -16,6 +16,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavHostController
 import com.example.offlinebudgettracker.Model.TransactionHistoryCardmodel
 import com.example.offlinebudgettracker.R
 import com.example.offlinebudgettracker.ui.theme.GreenCard
@@ -26,9 +27,8 @@ import java.time.LocalDate
 import java.time.LocalTime
 
 @RequiresApi(Build.VERSION_CODES.O)
-@Preview
 @Composable
-fun TransactionHistory() {
+fun TransactionHistory(navController: NavHostController) {
 
  val transactionHistorylist = remember {  mutableStateListOf (
          TransactionHistoryCardmodel(
@@ -108,8 +108,8 @@ fun TransactionHistory() {
 
  Scaffold(
   topBar = { TransactionHistoryTopBar() },
-  bottomBar = { BottonNavigationBar() },
-  modifier = Modifier.padding(16.dp)
+  bottomBar = { BottonNavigationBar(navController,  "History") },
+  modifier = Modifier.padding(horizontal = 16.dp)
  ) { innerPadding ->
 
 

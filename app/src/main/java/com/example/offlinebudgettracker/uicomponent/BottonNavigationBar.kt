@@ -19,56 +19,69 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
+import com.example.offlinebudgettracker.Navigation.Routes
 import com.example.offlinebudgettracker.R
+import com.example.offlinebudgettracker.ui.theme.WarmOrange
 import kotlin.Int
 import kotlin.String
 
-@Preview(showBackground = true, showSystemUi = true)
 @Composable
- fun BottonNavigationBar() {
+ fun BottonNavigationBar(navController: NavController, routeSelected: String) {
 
   val navItem = listOf(
 
-   NavItem(icon = R.drawable.home, label = "Home"),
-   NavItem(icon = R.drawable.analytics, label = "Analytics"),
-   NavItem(icon = R.drawable.budgeticon, label = "Budget"),
-   NavItem(icon = R.drawable.historyicon, label = "History")
+   NavItem(icon = R.drawable.home, label = "Home", Routes.Homescreen),
+   NavItem(icon = R.drawable.analytics, label = "Analytics", Routes.Analytics),
+   NavItem(icon = R.drawable.budgeticon, label = "Budget", Routes.Budgetlimit),
+   NavItem(icon = R.drawable.transactionhistory, label = "History", Routes.Transactionhistory)
 
 
   )
 
  NavigationBar(
   containerColor = Color.White,
-  modifier = Modifier.height(70.dp).background(color = Color.White)
-   .padding(top = 8.dp),
-  windowInsets = WindowInsets(0.dp),
+  windowInsets = WindowInsets(0, 0, 0, 0),
+
+          modifier = Modifier
+   .background(color = Color.White)
  ) {
     navItem.forEach { item ->
 
      NavigationBarItem(
-      onClick = {},
+      onClick = {
+       navController.navigate(item.route){
+        popUpTo(navController.graph.startDestinationId ){
+         saveState = true// save the state of screen;
+        }
+        launchSingleTop = true// keep only one in stack , in case of multiple click;
+        restoreState = true // saveState save the state and restoreState restore the state of screen;
+
+       }
+      },
       icon = {
        Icon(
         painter = painterResource(item.icon),
         contentDescription = item.label,
-        modifier = Modifier.size(24.dp)
+        modifier = Modifier.size(22.dp)
        )
       },
       label = {
        Text(
         text = item.label,
         style = MaterialTheme.typography.titleLarge.copy(
-         fontWeight = FontWeight.Bold,
+         fontWeight = FontWeight.SemiBold,
          fontSize = 12.sp
         )
        )
       },
-      selected = false,
+      selected =  item.label == routeSelected,
       colors = NavigationBarItemDefaults.colors(
        unselectedIconColor = Color.DarkGray.copy(0.8f),
-       selectedIconColor = Color.Blue.copy(alpha = 0.5f),
-       selectedTextColor = Color.Blue.copy(alpha = 0.5f),
-       unselectedTextColor = Color.DarkGray.copy(0.8f)
+       selectedIconColor = Color.Black,
+       selectedTextColor = Color.Black,
+       unselectedTextColor = Color.DarkGray.copy(0.8f),
+       indicatorColor = Color.Gray.copy(0.5f)
       )
      )
     }
@@ -78,7 +91,8 @@ import kotlin.String
 
 data class NavItem(
  val icon : Int,
- val label : String
+ val label : String,
+ val route : Routes
  )
 
 

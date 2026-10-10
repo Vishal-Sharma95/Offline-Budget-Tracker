@@ -34,10 +34,8 @@ import com.example.offlinebudgettracker.R
         title = { Text("Spending Breakdown",
             style = MaterialTheme.typography.titleLarge.copy(
                 fontWeight = FontWeight.Black,
-                fontSize = 18.sp
+                fontSize = 24.sp
             ),
-            modifier = Modifier.padding(start = 18.dp))},
-        modifier = Modifier.padding(start = 16.dp)
-
+            modifier = Modifier.padding(start = 18.dp))}
     )
 }

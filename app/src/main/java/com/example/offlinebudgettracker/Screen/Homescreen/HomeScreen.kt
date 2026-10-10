@@ -38,6 +38,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavHostController
 import com.example.offlinebudgettracker.Model.TransactionCard
 import com.example.offlinebudgettracker.R
 import com.example.offlinebudgettracker.ui.theme.ActionBlue
@@ -51,16 +52,15 @@ import com.example.offlinebudgettracker.ui.theme.WarmOrange
 import com.example.offlinebudgettracker.uicomponent.BottonNavigationBar
 
 @OptIn(ExperimentalMaterial3Api::class)
-@Preview(showBackground = true, showSystemUi = true)
 @Composable
- fun HomeScreen() {
+ fun HomeScreen(navController: NavHostController) {
 
      var showTransactionSheet by remember { mutableStateOf(false) }
 
         Scaffold(
-            modifier = Modifier.fillMaxSize().padding(16.dp),
+            modifier = Modifier.fillMaxSize().padding(horizontal = 16.dp),
             topBar = { HomeScreenTopBar() },
-            bottomBar = { BottonNavigationBar() },
+            bottomBar = { BottonNavigationBar(navController, "Home") },
             floatingActionButton = {
                 FloatingActionButton(
                     onClick = {showTransactionSheet = true},

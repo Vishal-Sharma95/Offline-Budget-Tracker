@@ -30,11 +30,10 @@ import com.example.offlinebudgettracker.R
 @Composable
  fun HomeScreenTopBar() {
     TopAppBar(
-        windowInsets = WindowInsets(0.dp),
         title = { Text(text= "My Budget",
             style = MaterialTheme.typography.titleLarge.copy(
                 fontWeight = FontWeight.Black,
-                fontSize = 18.sp
+                fontSize = 24.sp
             ),
             modifier = Modifier.fillMaxWidth(),
             textAlign = TextAlign.Center) },

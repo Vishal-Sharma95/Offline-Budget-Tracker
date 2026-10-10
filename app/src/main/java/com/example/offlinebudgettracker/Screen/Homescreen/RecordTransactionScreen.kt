@@ -246,7 +246,7 @@ import com.example.offlinebudgettracker.ui.theme.WarmOrange
                     colors = ButtonDefaults.buttonColors(
                         containerColor = Color.DarkGray
                     ),
-                    enabled = !note.isEmpty()) {
+                    enabled = !amount.isEmpty()) {
                     Text("Save Transaction",
                         style = MaterialTheme.typography.titleMedium.copy(
                             fontSize = 16.sp

@@ -25,7 +25,7 @@ import com.example.offlinebudgettracker.R
         title = { Text("Budget Limits",
             style = MaterialTheme.typography.titleLarge.copy(
                 fontWeight = FontWeight.Bold,
-                fontSize = 20.sp
+                fontSize = 24.sp
             ),
             modifier = Modifier.padding(start = 20.dp)) },
         navigationIcon = {

@@ -32,7 +32,7 @@ import com.example.offlinebudgettracker.ui.theme.WarmOrange
  fun RecentTransactionCard(TransactionParameter: TransactionCard) {
 
 
-    Card(modifier = Modifier.fillMaxWidth().padding(4.dp),
+    Card(modifier = Modifier.fillMaxWidth().padding(horizontal = 4.dp),
         colors = CardDefaults.cardColors(
             containerColor = Color.White
         ),
